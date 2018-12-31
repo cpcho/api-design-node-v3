@@ -2,18 +2,21 @@ import { Router } from 'express'
 import controllers from './item.controllers'
 
 const router = Router()
+const callback = (req, res) => {
+  res.send({message: 'hi'})
+}
 
 // /api/item
 router
   .route('/')
-  .get(controllers.getOne)
-  .post(controllers.createOne)
+  .get(callback)
+  .post(callback)
 
 // /api/item/:id
 router
   .route('/:id')
-  .get(controllers.getOne)
-  .put(controllers.updateOne)
-  .delete(controllers.removeOne)
+  .get(callback)
+  .put(callback)
+  .delete(callback)
 
 export default router
